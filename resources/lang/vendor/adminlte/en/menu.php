@@ -1,19 +1,18 @@
 <?php
 
 return [
+    'search' => 'Search',
+    'header_users_teams' => 'Users & Teams',
+    'users_view' => 'View Users',
+    'users_create' => 'Create User',
+    'teams_view' => 'View Teams',
+    'teams_create' => 'Create Teams',
 
-    'main_navigation'               => 'MAIN NAVIGATION',
-    'blog'                          => 'Blog',
-    'pages'                         => 'Pages',
-    'account_settings'              => 'ACCOUNT SETTINGS',
-    'profile'                       => 'Profile',
-    'change_password'               => 'Change Password',
-    'multilevel'                    => 'Multi Level',
-    'level_one'                     => 'Level 1',
-    'level_two'                     => 'Level 2',
-    'level_three'                   => 'Level 3',
-    'labels'                        => 'LABELS',
-    'important'                     => 'Important',
-    'warning'                       => 'Warning',
-    'information'                   => 'Information',
+    'header_fixtures_and_seasons' => 'Fixtres & Seasons',
+    'seasons_view' => 'View Seasons',
+    'seasons_create' => 'Create Season',
+    'fixtures_view' => 'View Fixtures',
+    'fixtures_create' => 'Create Fixture',
+    'header_league_manager' => 'League Manager',
+    'settings' => 'Settings'
 ];

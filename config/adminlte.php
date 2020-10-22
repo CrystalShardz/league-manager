@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'League Manager',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>League</b> Manager',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -188,7 +188,7 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
 
     'logout_url' => 'logout',
 
@@ -236,83 +236,55 @@ return [
             'search' => true,
             'topnav' => true,
         ],
+        ['header' => 'header_users_teams'],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'users_view',
+            'url' => '',
+            'icon' => 'fas fa-fw fa-user'
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'users_create',
+            'url' => '',
+            'icon' => 'fas fa-fw fa-user-plus'
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'teams_view',
+            'url' => '',
+            'icon' => 'fas fa-fw fa-users'
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
+            'text' => 'teams_create',
+            'url' => '',
+            'icon' => 'fas fa-fw fa-users-plus'
         ],
-        ['header' => 'labels'],
+        ['header' => 'header_fixtures_and_seasons'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text' => 'seasons_view',
+            'url' => '',
+            'icon' => 'fas fa-fw fa-calendar-o'
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+            'text' => 'seasons_create',
+            'url' => '',
+            'icon' => 'fas fa-fw fa-calendar-plus',
+        ],
+
+        [
+            'text' => 'fixtures_view',
+            'url' => '',
+            'icon' => 'fas fa-fw fa-calendar-week'
         ],
         [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'text' => 'fixtures_create',
+            'url' => '',
+            'icon' => 'fas fa-fw fa-calendar-plus'
         ],
+        ['header' => 'header_league_manager'],
+        [
+            'text' => 'settings',
+            'url' => '',
+            'icon' => 'fas fa-fw fa-cogs'
+        ]
     ],
 
     /*
