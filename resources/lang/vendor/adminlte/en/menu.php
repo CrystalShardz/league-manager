@@ -2,9 +2,9 @@
 
 return [
     'search' => 'Search',
-    'header_users_teams' => 'Users & Teams',
-    'users_view' => 'View Users',
-    'users_create' => 'Create User',
+    'header_users_teams' => 'Members & Teams',
+    'users_view' => 'View Members',
+    'users_create' => 'Create Member',
     'teams_view' => 'View Teams',
     'teams_create' => 'Create Teams',
 
