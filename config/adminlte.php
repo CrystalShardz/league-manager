@@ -249,13 +249,13 @@ return [
         ],
         [
             'text' => 'teams_view',
-            'url' => '',
+            'route' => 'teams.index',
             'icon' => 'fas fa-fw fa-users'
         ],
         [
             'text' => 'teams_create',
-            'url' => '',
-            'icon' => 'fas fa-fw fa-users-plus'
+            'route' => 'teams.create',
+            'icon' => 'fas fa-fw fa-plus'
         ],
         ['header' => 'header_fixtures_and_seasons'],
         [
