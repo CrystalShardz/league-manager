@@ -51,6 +51,8 @@
                                     <td>
                                         <form method="post" action="{{ route("teams.destroy", [$team]) }}"
                                               data-submit="deleteTeam">
+                                            @csrf
+                                            @method("DELETE")
                                             <a href="{{ route("teams.show", [$team]) }}"
                                                class="btn btn-outline-info btn-sm" title="View">
                                                 <i class="fa fa-fw fa-eye"></i>
@@ -74,3 +76,24 @@
         </div>
     </div>
 @endsection
+@push('js')
+    <script type="text/javascript">
+        document.querySelectorAll("[data-submit='deleteTeam']").forEach((elm) => {
+            elm.onsubmit = function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "This team will be sent to the trash",
+                    type: "question",
+                    showCancelButton: true,
+                    showConfirmButton: true,
+                    confirmButtonText: "Yes, Delete them"
+                }).then((result) => {
+                    if (result.value) {
+                        e.target.submit();
+                    }
+                });
+            };
+        });
+    </script>
+@endpush

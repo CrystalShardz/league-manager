@@ -88,11 +88,17 @@ class MembersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
-     * @return Response
+     * @param Member $member
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Member $member)
     {
-        //
+        try {
+            $member->delete();
+        } catch (\Exception $e) {
+            //
+        }
+
+        return response()->redirectToRoute('members.index');
     }
 }

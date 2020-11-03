@@ -73,10 +73,10 @@ class TeamsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
-     * @return Response
+     * @param Team $team
+     * @return void
      */
-    public function show($id)
+    public function show(Team $team)
     {
         //
     }
@@ -107,11 +107,17 @@ class TeamsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
-     * @return Response
+     * @param Team $team
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Team $team)
     {
-        //
+        try {
+            $team->delete();
+        } catch (\Exception $e) {
+            //
+        }
+
+        return response()->redirectToRoute('teams.index');
     }
 }
