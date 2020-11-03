@@ -239,12 +239,12 @@ return [
         ['header' => 'header_users_teams'],
         [
             'text' => 'users_view',
-            'url' => '',
+            'route' => 'members.index',
             'icon' => 'fas fa-fw fa-user'
         ],
         [
             'text' => 'users_create',
-            'url' => '',
+            'route' => 'members.create',
             'icon' => 'fas fa-fw fa-user-plus'
         ],
         [
@@ -323,7 +323,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -343,7 +343,7 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -368,7 +368,7 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
