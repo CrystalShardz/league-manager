@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMemberRequest;
 use App\Models\Member;
+use App\Models\Team;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -44,9 +45,30 @@ class MembersController extends Controller
     {
         $data = $request->validated();
 
+        /**
+         * @var Member $member
+         */
         $member = Member::create([
             'name' => $data['name']
         ]);
+
+        if (array_key_exists('team', $data)) {
+            if (is_numeric($data['team'])) {
+                /**
+                 * @var Team $team
+                 */
+                $team = Team::find($data['team']);
+            } else {
+                /**
+                 * @var Team $team
+                 */
+                $team = Team::create([
+                    'name' => $data['team']
+                ]);
+            }
+
+            $team->members()->save($member);
+        }
 
         return response()->redirectToRoute("members.index");
     }

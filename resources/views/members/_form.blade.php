@@ -12,3 +12,10 @@
         @enderror
     </div>
 </div>
+<div class="form-group row">
+    <label for="memberTeamInput" class="col-4 col-form-label">Team:</label>
+    <div class="col">
+        <x-team-selector name="team" id="memberTeamInput"
+                         :selected="isset($member) && $member->team ? [$member->team->id] : []" allow-custom-teams="true"/>
+    </div>
+</div>

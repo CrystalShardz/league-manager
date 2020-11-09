@@ -37,7 +37,9 @@
                                         </a>
                                     </td>
                                     <td>
-
+                                        @if($member->team)
+                                            {{ $member->team->name }}
+                                        @endif
                                     </td>
                                     <td>
                                         <a href="{{ route('members.show', [$member]) }}">
