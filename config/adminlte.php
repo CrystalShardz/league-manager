@@ -257,7 +257,7 @@ return [
             'route' => 'teams.create',
             'icon' => 'fas fa-fw fa-plus'
         ],
-        ['header' => 'header_fixtures_and_seasons'],
+        ['header' => 'header_seasons'],
         [
             'text' => 'seasons_view',
             'route' => 'seasons.index',
@@ -267,17 +267,6 @@ return [
             'text' => 'seasons_create',
             'route' => 'seasons.create',
             'icon' => 'fas fa-fw fa-calendar-plus',
-        ],
-
-        [
-            'text' => 'fixtures_view',
-            'url' => '',
-            'icon' => 'fas fa-fw fa-calendar-week'
-        ],
-        [
-            'text' => 'fixtures_create',
-            'url' => '',
-            'icon' => 'fas fa-fw fa-calendar-plus'
         ],
         ['header' => 'header_league_manager'],
         [
