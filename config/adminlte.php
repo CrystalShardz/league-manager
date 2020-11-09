@@ -268,12 +268,17 @@ return [
             'route' => 'seasons.create',
             'icon' => 'fas fa-fw fa-calendar-plus',
         ],
-        ['header' => 'header_league_manager'],
+        ['header' => 'header_locations'],
         [
-            'text' => 'settings',
-            'url' => '',
-            'icon' => 'fas fa-fw fa-cogs'
-        ]
+            'text' => 'locations_view',
+            'route' => 'locations.index',
+            'icon' => 'fas fa-fw fa-home'
+        ],
+        [
+            'text' => 'locations_create',
+            'route' => 'locations.create',
+            'icon' => 'fas fa-fw fa-plus'
+        ],
     ],
 
     /*

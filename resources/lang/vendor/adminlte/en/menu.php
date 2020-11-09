@@ -11,6 +11,8 @@ return [
     'header_seasons' => 'Seasons',
     'seasons_view' => 'View Seasons',
     'seasons_create' => 'Create Season',
-    'header_league_manager' => 'League Manager',
-    'settings' => 'Settings'
+
+    'header_locations' => 'Locations',
+    'locations_view' => 'View Locations',
+    'locations_create' => 'Create Location'
 ];
