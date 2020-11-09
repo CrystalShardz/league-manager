@@ -2,7 +2,7 @@
 @section('content_header')
     <h1>
         Seasons
-        <a href="{{ route('seasons.create') }}" class="btn btn-outline-primary float-right">
+        <a href="{{ route('seasons.create') }}" class="btn btn-primary float-right">
             <i class="fa fa-fw fa-plus"></i> Create Season
         </a>
     </h1>
