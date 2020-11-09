@@ -260,12 +260,12 @@ return [
         ['header' => 'header_fixtures_and_seasons'],
         [
             'text' => 'seasons_view',
-            'url' => '',
+            'route' => 'seasons.index',
             'icon' => 'fas fa-fw fa-calendar-o'
         ],
         [
             'text' => 'seasons_create',
-            'url' => '',
+            'route' => 'seasons.create',
             'icon' => 'fas fa-fw fa-calendar-plus',
         ],
 
@@ -391,6 +391,31 @@ return [
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
                 ],
             ],
+        ],
+        'Moment JS' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js',
+                ]
+            ]
+        ],
+        'Tempus Dominus for Bootstrap 4' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css',
+                ]
+            ]
         ],
     ],
 

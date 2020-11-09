@@ -20,4 +20,5 @@ Route::group(['namespace' => '\App\Http\Controllers', 'middleware' => 'auth'], f
     Route::get('/', "\App\Http\Controllers\DashboardController@index");
     Route::resource("members", "MembersController");
     Route::resource('teams', 'TeamsController');
+    Route::resource('seasons', 'SeasonsController');
 });

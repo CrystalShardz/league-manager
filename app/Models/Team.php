@@ -32,4 +32,9 @@ class Team extends Model
     {
         return $this->belongsTo(Member::class, 'captain_id');
     }
+
+    public function seasons()
+    {
+        return $this->belongsToMany(Season::class);
+    }
 }
