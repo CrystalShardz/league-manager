@@ -61,12 +61,12 @@ class SeasonsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
-     * @return Response
+     * @param Season $season
+     * @return Application|Factory|View|Response
      */
-    public function show($id)
+    public function show(Season $season)
     {
-        //
+        return view('seasons.show', compact('season'));
     }
 
     /**
