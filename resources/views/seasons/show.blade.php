@@ -3,6 +3,17 @@
     <h1>{{ $season->name }}</h1>
 @endsection
 @section('content')
+    @if($season->fixtures()->count() < 1)
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-warning">
+                    <p>
+                        <i class="fa fa-fw fa-warning"></i> No fixtures have been created for this season.
+                    </p>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="row">
         <div class="col-12">
             <div class="card card-primary card-outline">
@@ -33,6 +44,62 @@
                             </tr>
                         @endfor
                         </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header with-border">
+                    <h3 class="card-title">Upcoming Fixtures</h3>
+                </div>
+                <div class="card-body m-0 p-0">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Home</th>
+                            <th>Away</th>
+                            <th>Start</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header with-border">
+                    <h3 class="card-title">Pending Results</h3>
+                </div>
+                <div class="card-body m-0 p-0">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Home</th>
+                            <th>Away</th>
+                            <th>Start</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header with-border">
+                    <h3 class="card-title">Completed Fixtures</h3>
+                </div>
+                <div class="card-body m-0 p-0">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Home</th>
+                            <th>Away</th>
+                            <th>Start</th>
+                        </tr>
+                        </thead>
                     </table>
                 </div>
             </div>
