@@ -17,6 +17,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Captain</th>
+                            <th>Members</th>
                             <th>Joined</th>
                             <th>actions</th>
                         </tr>
@@ -24,7 +25,7 @@
                         <tbody>
                         @if($teams->count() < 1)
                             <tr>
-                                <td colspan="4" class="text-center">
+                                <td colspan="5" class="text-center">
                                     No teams have been created.
                                 </td>
                             </tr>
@@ -42,6 +43,11 @@
                                                 {{ $team->captain->name }}
                                             </a>
                                         @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('teams.show', [$team]) }}">
+                                            {{ $team->members->count() }}
+                                        </a>
                                     </td>
                                     <td>
                                         <a href="{{ route('teams.show', [$team]) }}">
