@@ -257,6 +257,11 @@ return [
             'route' => 'teams.create',
             'icon' => 'fas fa-fw fa-plus'
         ],
+        [
+            'text' => 'members_teams_import',
+            'route' => 'teams.import',
+            'icon' => 'fas fa-fw fa-upload'
+        ],
         ['header' => 'header_seasons'],
         [
             'text' => 'seasons_view',

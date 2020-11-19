@@ -19,6 +19,10 @@ Auth::routes();
 Route::group(['namespace' => '\App\Http\Controllers', 'middleware' => 'auth'], function () {
     Route::get('/', "\App\Http\Controllers\DashboardController@index");
     Route::resource("members", "MembersController");
+
+    Route::get('/teams/import/template', 'TeamsController@importTemplate')->name('teams.importTemplate');
+    Route::get('teams/import', 'TeamsController@import')->name('teams.import');
+    Route::post('teams/import', 'TeamsController@upload')->name('teams.upload');
     Route::resource('teams', 'TeamsController');
 
     Route::get('seasons/{season}/fixtures/generate', 'FixturesController@generate')->name('fixtures.generate');
@@ -26,5 +30,6 @@ Route::group(['namespace' => '\App\Http\Controllers', 'middleware' => 'auth'], f
     Route::resource('seasons/{season}/fixtures', 'FixturesController');
 
     Route::resource('seasons', 'SeasonsController');
+
     Route::resource('locations', 'LocationsController');
 });

@@ -11,6 +11,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class TeamsController extends Controller
 {
@@ -102,6 +103,70 @@ class TeamsController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    /**
+     *
+     * Show the import page
+     * @return Application|Factory|View
+     */
+    public function import()
+    {
+        return view('teams.import');
+    }
+
+    /**
+     * Process the uploaded import file
+     *
+     * @param Request $request
+     * @return mixed
+     */
+    public function upload(Request $request)
+    {
+        $this->validate($request, [
+            'uploadFile' => 'required|file|mimes:csv,txt'
+        ]);
+
+        $importFile = $request->file('uploadFile');
+
+        $res = $importFile->openFile('r');
+        $res->setFlags(\SplFileObject::READ_CSV);
+        $headersSkipped = false;
+        foreach($res as $line) {
+            if(!$headersSkipped) {
+                $headersSkipped = true;
+                continue;
+            }
+
+            //sanitize data - remove anything that isn't a letter or a number
+            $line[0] = preg_replace('/[^a-z0-9 ]+$/i', '', $line[0]);
+            $line[1] = preg_replace('/[^a-z0-9 ]+$/i', '', $line[1]);
+
+            /**
+             * @var Member $member
+             */
+            $member = Member::create([
+                'name' => $line[0]
+            ]);
+
+            /**
+             * @var Team $team
+             */
+            $team = Team::firstOrCreate(['name' => $line[1]]);
+            $team->members()->save($member);
+        }
+
+        return response()->redirectToRoute('teams.index');
+    }
+
+    /**
+     * Offers the import template up for download
+     *
+     * @return BinaryFileResponse
+     */
+    public function importTemplate()
+    {
+        return response()->download(storage_path('app/public/import.csv'), 'import.csv', ['ContentType: text/csv']);
     }
 
     /**

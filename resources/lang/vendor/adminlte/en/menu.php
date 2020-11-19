@@ -7,6 +7,7 @@ return [
     'users_create' => 'Create Member',
     'teams_view' => 'View Teams',
     'teams_create' => 'Create Teams',
+    'members_teams_import' => 'Import From File',
 
     'header_seasons' => 'Seasons',
     'seasons_view' => 'View Seasons',
