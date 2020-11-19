@@ -1,6 +1,6 @@
-#League Manger
-##Introduction
-League Manager is an easy to use application to aide league administrators to manage their 10 pin bowling league.
+# League Manger
+## Introduction
+League Manager is an easy to use application to aid league administrators to manage their 10 pin bowling league.
 
 League Manager provides the tools to manage:
 * Teams
@@ -14,7 +14,7 @@ League Manager provides the tools to manage:
 
 League Manager is in active development and not all features may currently be available.
 
-##Installing
+## Installing
 1. Clone this repository
 2. Upload to your web host (or if running locally move to your local web server)
 3. Open a terminal and navigate to this repository
