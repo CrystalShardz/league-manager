@@ -1,6 +1,19 @@
 @extends('adminlte::page')
 @section('content_header')
-    <h1>{{ $season->name }}</h1>
+    <h1>
+        {{ $season->name }}
+        <div class="btn-group float-right">
+            <a href="" class="btn btn-primary">
+                <i class="fa fa-fw fa-plus"></i> Create Fixture
+            </a>
+            <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle dropdown-toggle-split">
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{{ route('fixtures.generate', [$season]) }}">Generate Round Robin</a>
+            </div>
+        </div>
+    </h1>
 @endsection
 @section('content')
     @if($season->fixtures()->count() < 1)
@@ -35,7 +48,7 @@
                         <tbody>
                         @for($i = 0; $i < $season->teams->count(); $i++)
                             <tr>
-                                <td>{{ $i }}</td>
+                                <td>{{ $i+1 }}</td>
                                 <td>{{ $season->teams[$i]->name }}</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
@@ -64,6 +77,15 @@
                             <th>Start</th>
                         </tr>
                         </thead>
+                        <tbody>
+                        @foreach($season->fixtures()->whereDate('start_at', '>=', \Carbon\Carbon::now())->get() as $fixture)
+                            <tr>
+                                <td>{{ $fixture->home->name }}</td>
+                                <td>{{ $fixture->away->name }}</td>
+                                <td>{{ $fixture->start_at->format('d/m/Y') }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -82,6 +104,15 @@
                             <th>Start</th>
                         </tr>
                         </thead>
+                        <tbody>
+                        @foreach($season->fixtures()->whereDate('start_at', '<=', \Carbon\Carbon::now())->get() as $fixture)
+                            <tr>
+                                <td>{{ $fixture->home->name }}</td>
+                                <td>{{ $fixture->away->name }}</td>
+                                <td>{{ $fixture->start_at->format('d/m/Y') }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -100,6 +131,15 @@
                             <th>Start</th>
                         </tr>
                         </thead>
+                        <tbody>
+                        @foreach($season->fixtures()->whereDate('start_at', '<', \Carbon\Carbon::now())->get() as $fixture)
+                            <tr>
+                                <td>{{ $fixture->home->name }}</td>
+                                <td>{{ $fixture->away->name }}</td>
+                                <td>{{ $fixture->start_at->format('d/m/Y') }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>

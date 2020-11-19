@@ -20,6 +20,11 @@ Route::group(['namespace' => '\App\Http\Controllers', 'middleware' => 'auth'], f
     Route::get('/', "\App\Http\Controllers\DashboardController@index");
     Route::resource("members", "MembersController");
     Route::resource('teams', 'TeamsController');
+
+    Route::get('seasons/{season}/fixtures/generate', 'FixturesController@generate')->name('fixtures.generate');
+    Route::post('seasons/{season}/fixtures/generate', 'FixturesController@doGenerate')->name('fixtures.doGenerate');
+    Route::resource('seasons/{season}/fixtures', 'FixturesController');
+
     Route::resource('seasons', 'SeasonsController');
     Route::resource('locations', 'LocationsController');
 });

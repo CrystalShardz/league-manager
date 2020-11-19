@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Generators\RoundRobin;
 use App\Models\Season;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -19,17 +20,40 @@ class FixturesController extends Controller
      */
     public function index(Season $season)
     {
-        
+
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @param Season $season
+     * @return Application|Factory|View|Response
      */
-    public function create()
+    public function create(Season $season)
     {
         //
+    }
+
+    /**
+     * @param Season $season
+     * @return Application|Factory|View
+     */
+    public function generate(Season $season)
+    {
+        return view('fixtures.generate', compact('season'));
+    }
+
+    public function doGenerate(Season $season, Request $request)
+    {
+        $data = $this->validate($request, [
+            'roundsToGenerate' => 'required|numeric|min:1'
+        ]);
+
+        $generator = new RoundRobin($season, $data['roundsToGenerate'], true);
+
+        $rounds = $generator->generate();
+
+        return response()->redirectToRoute('seasons.show', [$season]);
     }
 
     /**
