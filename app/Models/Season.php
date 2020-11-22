@@ -11,12 +11,12 @@ class Season extends Model
 
     protected $fillable = [
         'name',
-        'datetime_start'
+        'date_start'
     ];
     protected $dates = [
         'created_at',
         'updated_at',
-        'datetime_start'
+        'date_start'
     ];
 
     /**

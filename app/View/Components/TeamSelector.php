@@ -15,6 +15,7 @@ class TeamSelector extends Component
     public bool $multiple = false;
     public string $placeholder = '';
     public bool $allowCustomTeams = false;
+    public bool $selectAll = false;
 
     public Collection $teams;
 
@@ -27,8 +28,9 @@ class TeamSelector extends Component
      * @param bool $multiple
      * @param string $placeholder
      * @param bool $allowCustomTeams
+     * @param bool $selectAll
      */
-    public function __construct(array $selected = [], string $name = '', string $id = '', bool $multiple = false, string $placeholder = 'Select Team', bool $allowCustomTeams = false)
+    public function __construct(array $selected = [], string $name = '', string $id = '', bool $multiple = false, string $placeholder = 'Select Team', bool $allowCustomTeams = false, bool $selectAll = false)
     {
         $this->selected = $selected;
         $this->name = $name;
@@ -36,6 +38,7 @@ class TeamSelector extends Component
         $this->multiple = $multiple;
         $this->placeholder = $placeholder;
         $this->allowCustomTeams = $allowCustomTeams;
+        $this->selectAll = $selectAll;
 
         $this->loadTeams();
     }

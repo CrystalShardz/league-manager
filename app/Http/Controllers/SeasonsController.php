@@ -50,7 +50,7 @@ class SeasonsController extends Controller
          */
         $season = Season::create([
             'name' => $data['name'],
-            'datetime_start' => Carbon::createFromFormat("d/m/Y H:i", $data['datetime_start']),
+            'datetime_start' => Carbon::createFromFormat("d-m-Y", $data['datetime_start']),
         ]);
 
         $season->teams()->sync($data['teams']);

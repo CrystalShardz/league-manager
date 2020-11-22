@@ -26,7 +26,7 @@ class StoreSeasonRequest extends FormRequest
     {
         return [
             'name' => 'required|unique:seasons,name',
-            'datetime_start' => 'required|date',
+            'datetime_start' => 'required|date_format:d-m-Y',
             'teams' => 'sometimes|nullable',
             'teams.*' => 'numeric|exists:teams,id'
         ];

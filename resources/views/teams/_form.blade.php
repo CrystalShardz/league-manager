@@ -16,6 +16,6 @@
     <div class="col">
         <x-member-selector name="members[]" id="teamMembersInput"
                            :selected="isset($team) ? $team->members : old('members', [])" multiple="true"
-                           :allow-custom-members="true" placeholder="Select Members"/>
+                           :allow-custom-members="true" select-all="true" placeholder="Select Members"/>
     </div>
 </div>
