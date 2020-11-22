@@ -51,7 +51,7 @@ class RoundRobin implements Generator
         /**
          * @var Carbon $fixtureDate
          */
-        $fixtureDate = $this->season->datetime_start;
+        $fixtureDate = $this->season->date_start;
 
         $numTeams = $teams->count();
         $useBlind = false;
