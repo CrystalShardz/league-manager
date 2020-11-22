@@ -38,7 +38,7 @@
                                     </td>
                                     <td>
                                         <a href="{{ route('seasons.show', [$season]) }}">
-                                            {{ $season->datetime_start->format('jS F Y H:i') }}
+                                            {{ $season->date_start->format('jS F Y') }}
                                         </a>
                                     </td>
                                     <td>
