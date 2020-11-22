@@ -139,12 +139,13 @@ class TeamsController extends Controller
             }
 
             //sanitize data - remove anything that isn't a letter or a number
-            $line[0] = preg_replace('/[^a-z0-9 ]+$/i', '', $line[0]);
-            $line[1] = preg_replace('/[^a-z0-9 ]+$/i', '', $line[1]);
+            $regex = '/^[a-z0-9 \040 .\-]+$/i/';
+            $line[0] = preg_replace($regex, '', $line[0]);
+            $line[1] = preg_replace($regex, '', $line[1]);
 
             /**
              * @var Member $member
-             */
+             *
             $member = Member::create([
                 'name' => $line[0]
             ]);
